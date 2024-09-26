@@ -1,0 +1,52 @@
+﻿use Produto
+switched to db Produto
+Inserção / Criação
+db.Produto.insertOne ({
+nome : "Ventilador de mesa",
+descricao : "Ventilador  branco 40cm 110v",
+estoque : "5",
+fabricante : "bons ventos"
+})
+
+acknowledged: true,
+  insertedId: ObjectId('66f0c8f2f213ac30d1909622')
+
+
+Atualização;
+db.Produto.updateOne(
+{ "fabricante" : "bons ventos" },
+  {$set: {"fabricante" : "Ultralar"}}
+);
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+Consulta;
+db.Produto.find ({"nome" : "Ventilador de mesa"})
+
+
+{
+  _id: ObjectId('66f0c8f2f213ac30d1909622'),
+  nome: 'Ventilador de mesa',
+  descricao: 'Ventilador  branco 40cm 110v',
+  estoque: '5',
+  fabricante: 'Ultralar'
+}
+
+
+Consulta;
+
+db.Produto.find ({"fabricante" : "Ultralar" })
+
+{
+  _id: ObjectId('66f0c8f2f213ac30d1909622'),
+  nome: 'Ventilador de mesa',
+  descricao: 'Ventilador  branco 40cm 110v',
+  estoque: '5',
+  fabricante: 'Ultralar'  }
